@@ -1,0 +1,22 @@
+{
+  "name": "personal-finance-app-modular",
+  "version": "1.0.0",
+  "description": "A modular vanilla JavaScript solution to the Frontend Mentor Personal Finance App challenge.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 5512",
+    "test:unit": "node tests/node-runner.js",
+    "test:integration": "node tests/integration-runner.js",
+    "test": "npm run test:unit && npm run test:integration"
+  },
+  "keywords": [
+    "frontend-mentor",
+    "vanilla-javascript",
+    "personal-finance",
+    "es-modules"
+  ]
+}

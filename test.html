@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Finance App - Tests</title>
+</head>
+<body>
+  <h1>Automated tests</h1>
+  <div id="test-results">Loading tests...</div>
+
+  <script>
+    function showTestBootError(message) {
+      const app = document.querySelector("#test-results");
+      app.innerHTML = `<p>TEST BOOT ERROR - ${message}</p>`;
+    }
+
+    window.addEventListener("error", (event) => {
+      showTestBootError(event.message);
+    });
+
+    window.addEventListener("unhandledrejection", (event) => {
+      showTestBootError(event.reason?.message || event.reason || "Promise rejected");
+    });
+  </script>
+
+  <script type="module" src="./tests/run.js"></script>
+</body>
+</html>

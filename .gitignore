@@ -1,0 +1,29 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies, generated output, logs, and local configuration
+node_modules/
+dist/
+coverage/
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# Generated or private design-analysis artifacts
+personal-finance-app-figma/
+graphify-out/
+
+# Personal learning notes; they are not part of the public solution
+implementation-plan.md
+project-questions-and-answers.md
+testing-backlog.md
+
+# Source design files should not be committed accidentally
+*.sketch
+*.fig
+*.xd
