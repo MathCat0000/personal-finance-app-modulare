@@ -932,6 +932,7 @@ select:focus {
   border-radius: var(--radius-card);
   background: var(--white);
   box-shadow: var(--shadow-card);
+  container-type: inline-size;
 }
 
 .summary-card {
@@ -965,7 +966,7 @@ select:focus {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(22rem, 1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 1.5rem;
 }
 
@@ -1001,7 +1002,7 @@ select:focus {
 .pot-overview,
 .budget-overview {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(12rem, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: center;
 }
@@ -1034,13 +1035,21 @@ select:focus {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  min-width: 0;
 }
 
 .mini-metric {
   display: grid;
   gap: 0.25rem;
+  min-width: 0;
   border-left: 0.25rem solid var(--metric-color, var(--green));
   padding-left: 1rem;
+}
+
+.mini-metric span,
+.mini-metric strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .mini-metric span {
@@ -1057,7 +1066,7 @@ select:focus {
   place-items: center;
   align-content: center;
   justify-self: center;
-  width: 13.75rem;
+  width: min(13.75rem, 100%);
   aspect-ratio: 1;
   border-radius: 50%;
   background:
@@ -1078,6 +1087,33 @@ select:focus {
 .donut--large {
   width: min(100%, 18rem);
   margin-inline: auto;
+}
+
+@container (max-width: 42rem) {
+  .budget-overview {
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .budget-overview .donut {
+    width: min(11rem, 100%);
+  }
+
+  .budget-overview .mini-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@container (max-width: 30rem) {
+  .pot-overview,
+  .budget-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .budget-overview .donut {
+    width: min(13.75rem, 100%);
+  }
 }
 
 .transaction-list,
